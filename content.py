@@ -10,7 +10,7 @@ art = r"""
                ,'. . . _   ,--~,-'__..-'  ,'
              ,'. . .  (@)' ---~~~~      ,'
             /. . . . '~~             ,-'
-           /.  T . .             ,-'
+           /. . T . .             ,-'
           ; . . I .  - .        ,'
          : . . . .       _     /
         . . N . .          `-.:
@@ -25,10 +25,10 @@ def show_print_output():
 
 def copy_files_with_matching_suffix(content_directory, output_directory):
     script_directory = os.getcwd()
-    if not output_directory:
-        output_directory = os.path.join(script_directory, "output")
-    else:
+    if output_directory and os.path.isdir(output_directory):
         output_directory = os.path.join(output_directory, "output")
+    else:
+        output_directory = os.path.join(content_directory, "output")
 
     copied_files_count = 0
     subfolders_count = 0
